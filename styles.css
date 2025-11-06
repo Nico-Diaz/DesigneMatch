@@ -65,6 +65,7 @@ nav {
 
 nav a {
   text-decoration: none;
+  width: 100%;
   font-weight: 500;
   color: transparent; 
   background: radial-gradient(circle at 50% 50%, #ff3131, #ff914d);
