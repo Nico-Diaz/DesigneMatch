@@ -330,7 +330,8 @@ footer {
 
 /* Contenedor de flechas debajo de 'Ver más' */
 .slide-arrows {
-  display: flex;
+  
+  display: none;
   gap: 12px;
   justify-content: center;
   align-items: center;
@@ -817,6 +818,13 @@ footer {
   height: 36px;
   font-size: 1rem;
 }
+.slide-arrows{
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+}
 
 .btn-vermas {
   padding: 12px 28px;
@@ -832,34 +840,46 @@ footer {
    - Se redujeron los 'padding' para pantallas pequeñas.
 */
 .contact-section {
-  /* display: none; */ /* <--- ESTO FUE ELIMINADO */
-  height: auto; /* Para que la altura se ajuste al contenido */
-  padding: 40px 8px; /* Padding para la sección en móvil */
-  display: block; /* Aseguramos que sea visible */
-}
+    height: auto; /* IMPORTANTE: Permite que la sección se ajuste al contenido */
+    padding: 60px 8px; /* Más espacio vertical, menos horizontal */
+    display: block; /* Asegura que sea visible y fluya en la página */
+    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+  }
 
-.contact-card {
-  width: 95vw; /* Igual que el carrusel */
-  padding: 25px; /* Reducido de 50px */
-}
+  .contact-card {
+    width: 95vw; /* Ocupa casi todo el ancho, igual que el carrusel */
+    padding: 25px; /* Reducido de 50px para dar espacio al contenido */
+  }
 
-/* Contacto: apilar columnas (Tu regla original, que ahora funcionará) */
-.contact-main {
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
+  /* === EL CAMBIO CLAVE: Apilar las columnas === */
+  .contact-main {
+    grid-template-columns: 1fr; /* Apila la info y el formulario, uno sobre otro */
+    gap: 30px; /* Espacio entre la info y el formulario */
+  }
 
-.contact-info h2 {
-  font-size: 1.6rem;
-}
+  .contact-info h2 {
+    font-size: 1.8rem; /* Título más pequeño para móvil */
+  }
 
-.contact-form-wrapper {
-  padding: 25px; /* Reducido de 40px */
-}
+  .contact-form-wrapper {
+    padding: 25px; /* Reducido de 40px para que no se apriete */
+  }
 
-.contact-footer {
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
+  .contact-form-wrapper h3 {
+    font-size: 1.5rem; /* Título del formulario más pequeño */
+  }
+
+  /* Hacemos el botón de envío de ancho completo para mejor UI móvil */
+  .contact-form-wrapper button {
+    align-self: stretch; /* El botón ocupa todo el ancho del formulario */
+    text-align: center; /* Centra el texto del botón */
+  }
+
+  /* === Apilar el footer de la tarjeta === */
+  .contact-footer {
+    flex-direction: column; /* Apila los elementos del footer */
+    align-items: center; /* Centra todo */
+    gap: 15px; /* Espacio entre los elementos apilados */
+    text-align: center;
+  }
 }
