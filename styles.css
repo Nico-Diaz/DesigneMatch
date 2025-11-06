@@ -855,8 +855,7 @@ footer {
     font-size: 1.8rem; /* Título más pequeño para móvil */
   }
 
-  .contact-form-wrapper {
-    padding: 25px; /* Reducido de 40px para que no se apriete */
+  .contact-form-wrapper { /* Reducido de 40px para que no se apriete */
   }
 
   .contact-form-wrapper h3 {
