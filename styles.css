@@ -757,7 +757,7 @@ footer {
 
 .carousel-container {
   width: 95vw;
-  height: 90vh; /* Ajustado para que la altura se adapte al contenido */
+  height: 80vh; /* Ajustado para que la altura se adapte al contenido */
 }
 
 .carousel-content {
@@ -833,12 +833,6 @@ footer {
 
 /* --- FIN: REGLAS PARA SECCIÓN 2 --- */
 
-/* --- INICIO: REGLAS PARA SECCIÓN 3 (CONTACTO) EN MÓVIL --- */
-/* MODIFICADO: 
-   - Se eliminó 'display: none;'
-   - Se ajustó 'height' a 'auto' para que el contenido fluya.
-   - Se redujeron los 'padding' para pantallas pequeñas.
-*/
 .contact-section {
     height: auto; /* IMPORTANTE: Permite que la sección se ajuste al contenido */
     padding: 60px 8px; /* Más espacio vertical, menos horizontal */
@@ -847,7 +841,7 @@ footer {
   }
 
   .contact-card {
-    width: 95vw; /* Ocupa casi todo el ancho, igual que el carrusel */
+    width: 100%; /* Ocupa casi todo el ancho, igual que el carrusel */
     padding: 25px; /* Reducido de 50px para dar espacio al contenido */
   }
 
