@@ -5,6 +5,71 @@ html {
     scroll-behavior: smooth; /* Scroll suave al navegar con anclas */
 }
 
+/* --- ADICIONAL: Ajustes responsivos generales para sección CONTACTO (tablets/phones) --- */
+@media (max-width: 900px) {
+  .contact-card {
+    max-width: 100%;
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    overflow: hidden; /* evita desbordes por elementos internos */
+  }
+
+  .contact-main {
+    grid-template-columns: 1fr; /* apilado en una sola columna */
+    gap: 20px;
+  }
+
+  .contact-form-wrapper {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    align-self: stretch;
+  }
+
+  /* Aseguramos que los controles del formulario no se salgan */
+  .contact-form-wrapper input,
+  .contact-form-wrapper textarea,
+  .contact-form-wrapper button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .instagram-links {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .instagram-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .contact-info .contact-data {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Refuerzo para pantallas muy pequeñas: asegurar que no haya overflow horizontal */
+@media (max-width: 440px) {
+  .contact-card {
+    padding: 18px;
+  }
+
+  .contact-info h2 {
+    font-size: 1.5rem;
+  }
+
+  .contact-form-wrapper {
+    padding: 16px;
+  }
+
+  .instagram-links {
+    justify-content: flex-start;
+  }
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -843,10 +908,7 @@ footer {
 
   /* 2. Ajustamos la tarjeta */
   .contact-card {
-    /* ¡LA CLAVE! La tarjeta ahora ocupa el 100% de su contenedor */
-    /* Esto respeta el padding de 16px que pusimos arriba */
     width: 100%;
-    
     /* Reducimos el padding interno de la tarjeta */
     padding: 25px;
   }
