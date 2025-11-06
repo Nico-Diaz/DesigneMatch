@@ -834,45 +834,45 @@ footer {
 /* --- FIN: REGLAS PARA SECCIÓN 2 --- */
 
 .contact-section {
-    height: auto; /* IMPORTANTE: Permite que la sección se ajuste al contenido */
-    padding: 60px 8px; /* Más espacio vertical, menos horizontal */
-    display: block; /* Asegura que sea visible y fluya en la página */
-    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+    /* Hacemos que la altura se ajuste al contenido, en lugar de forzar 100vh */
+    height: auto;
+    
+    /* Reducimos el padding lateral de la sección */
+    padding: 40px 16px; /* 40px arriba/abajo, 16px a los lados */
   }
 
+  /* 2. Ajustamos la tarjeta */
   .contact-card {
-    width: 100%; /* Ocupa casi todo el ancho, igual que el carrusel */
-    padding: 25px; /* Reducido de 50px para dar espacio al contenido */
+    /* ¡LA CLAVE! La tarjeta ahora ocupa el 100% de su contenedor */
+    /* Esto respeta el padding de 16px que pusimos arriba */
+    width: 100%;
+    
+    /* Reducimos el padding interno de la tarjeta */
+    padding: 25px;
   }
 
-  /* === EL CAMBIO CLAVE: Apilar las columnas === */
+  /* 3. Apilamos las columnas */
   .contact-main {
-    grid-template-columns: 1fr; /* Apila la info y el formulario, uno sobre otro */
-    gap: 30px; /* Espacio entre la info y el formulario */
+    /* Le decimos al grid que solo queremos UNA columna */
+    grid-template-columns: 1fr;
+    
+    /* Reducimos el espacio entre la info y el formulario */
+    gap: 30px;
   }
 
+  /* 4. Apilamos el footer de la tarjeta */
+  .contact-footer {
+    flex-direction: column; /* Apila los elementos */
+    align-items: center;  /* Los centra */
+    gap: 15px;            /* Les da espacio */
+  }
+
+  /* 5. (Opcional) Achicamos un poco los textos */
   .contact-info h2 {
-    font-size: 1.8rem; /* Título más pequeño para móvil */
-  }
-
-  .contact-form-wrapper { /* Reducido de 40px para que no se apriete */
+    font-size: 1.8rem;
   }
 
   .contact-form-wrapper h3 {
-    font-size: 1.5rem; /* Título del formulario más pequeño */
-  }
-
-  /* Hacemos el botón de envío de ancho completo para mejor UI móvil */
-  .contact-form-wrapper button {
-    align-self: stretch; /* El botón ocupa todo el ancho del formulario */
-    text-align: center; /* Centra el texto del botón */
-  }
-
-  /* === Apilar el footer de la tarjeta === */
-  .contact-footer {
-    flex-direction: column; /* Apila los elementos del footer */
-    align-items: center; /* Centra todo */
-    gap: 15px; /* Espacio entre los elementos apilados */
-    text-align: center;
+    font-size: 1.5rem;
   }
 }
