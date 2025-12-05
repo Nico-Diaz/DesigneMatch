@@ -1,0 +1,275 @@
+---
+/* 1. DEFINICIÓN DE DATOS */
+/* Aquí configuras tus diapositivas. Si quieres agregar una, solo añade un objeto más a esta lista. */
+const slides = [
+  {
+    titulo: "Diseño de interiores",
+    descripcion: "Incorporamos sensibilidad estética, conceptualización espacial y tendencia visual al equipo. Ampliamos la visión interdisciplinaria de la plataforma.",
+    imagen: "public/e3976ca7-e392-430b-a4a5-29a2055b84d0-Photoroom.png",
+    link: "#"
+  },
+  {
+    titulo: "Diseño gráfico",
+    descripcion: "Creamos identidades visuales coherentes y memorables, que transmiten la esencia y el valor diferencial de cada marca.",
+    imagen: "public/c1c4415a-049e-4ccb-9e76-e76b655cf5a4-Photoroom.png",
+    link: "#"
+  },
+  {
+    titulo: "Marketing digital",
+    descripcion: "Desarrollamos estrategias de contenido y posicionamiento que conectan marcas con personas.",
+    imagen: "public/Marketing-Strategy-Photoroom.png",
+    link: "#"
+  },
+  {
+    titulo: "Ingeniería en Sistemas",
+    descripcion: "Aportando el conocimiento técnico que da vida a la plataforma. Desarrollo de nuevos sistemas funcionales y optimización de procesos.",
+    imagen: "public/ingenieria-informatica-Photoroom.png",
+    link: "#"
+  }
+];
+---
+<h2 class="team-title" id="team-title">Nuestro equipo</h2>
+<section class="carousel-section">
+  <div class="carousel-container">
+    
+    <!-- 2. GENERACIÓN DINÁMICA DE SLIDES -->
+    <!-- Recorremos el array 'slides'. 'slide' es el dato actual, 'index' es la posición (0, 1, 2...) -->
+    {slides.map((slide, index) => (
+      <div class={`carousel-slide ${index === 0 ? 'active' : ''}`}>
+        <div class="carousel-content">
+          <div class="content-wrapper">
+            <h2>{slide.titulo}</h2>
+            <p>{slide.descripcion}</p>
+            <button class="btn-vermas">Ver más</button>
+            
+            <!-- Flechas móviles (ocultas en escritorio) -->
+            <div class="slide-arrows">
+                <button class="arrow slide-prev-mobile">←</button>
+                <button class="arrow slide-next-mobile">→</button>
+            </div>
+          </div>
+          
+          <div class="carousel-image">
+            <img src={slide.imagen} alt={slide.titulo} class="slide-img">
+          </div>
+        </div>
+      </div>
+    ))}
+
+    <!-- Flechas de navegación verticales (Escritorio) -->
+    <div class="carousel-nav-vertical">
+      <button id="prevSlide" class="arrow up">↑</button>
+      <button id="nextSlide" class="arrow down">↓</button>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // @ts-nocheck
+  
+  // LÓGICA DEL CARRUSEL
+  const slides = document.querySelectorAll('.carousel-slide');
+  const nextBtn = document.getElementById('nextSlide');
+  const prevBtn = document.getElementById('prevSlide');
+  
+  // Botones móviles (seleccionamos todos porque hay unos por cada slide generado)
+  const mobileNextBtns = document.querySelectorAll('.slide-next-mobile');
+  const mobilePrevBtns = document.querySelectorAll('.slide-prev-mobile');
+
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    // 1. Quitar la clase 'active' de todos
+    slides.forEach(slide => slide.classList.remove('active'));
+    
+    // 2. Calcular el índice correcto (cíclico)
+    if (index >= slides.length) {
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = slides.length - 1;
+    } else {
+        currentSlide = index;
+    }
+    
+    // 3. Poner la clase 'active' al nuevo slide
+    slides[currentSlide].classList.add('active');
+  }
+
+  // Eventos para flechas de escritorio
+  nextBtn?.addEventListener('click', () => showSlide(currentSlide + 1));
+  prevBtn?.addEventListener('click', () => showSlide(currentSlide - 1));
+
+  // Eventos para flechas móviles (como se generan dinámicamente, hay que añadirles evento a todos)
+  mobileNextBtns.forEach(btn => {
+      btn.addEventListener('click', () => showSlide(currentSlide + 1));
+  });
+  mobilePrevBtns.forEach(btn => {
+      btn.addEventListener('click', () => showSlide(currentSlide - 1));
+  });
+</script>
+
+<style>
+.team-title {
+  color: white;
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  }
+/* --- CARRUSEL --- */
+.carousel-section {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 50vh;
+  margin: 0 auto;
+  padding: 12px 20px; /* reducido para acercar secciones */
+  position: relative;
+}
+
+.carousel-container {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  height: auto; /* dejar que el contenido dicte altura */
+  min-height: 500px; /* más compacto que antes */
+  max-height: 600px;
+}
+
+.carousel-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px; /* reducido */
+  box-sizing: border-box;
+  /* Importante para que no tapen los clicks cuando están invisibles */
+  pointer-events: none; 
+  z-index: 0;
+}
+
+.carousel-slide.active { 
+    opacity: 1; 
+    pointer-events: all; /* Solo el activo recibe clicks */
+    z-index: 1;
+}
+
+.carousel-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.content-wrapper { flex: 1; text-align: left; padding-right: 20px; }
+
+.carousel-image {
+  flex: 1;
+  height: 320px; /* imagen un poco más pequeña para ajustarse al layout */
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.3s ease;
+}
+.carousel-image:hover .slide-img { transform: scale(1.05); }
+
+.carousel-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #fff 30%, #ffe4d6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: left;
+}
+
+.carousel-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-vermas {
+    background: linear-gradient(135deg, #ff3131, #ff914d);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.btn-vermas:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); }
+
+/* Navegación */
+.carousel-nav-vertical {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10; /* Asegurar que las flechas estén encima */
+}
+
+.arrow {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    backdrop-filter: blur(5px);
+}
+.arrow:hover { background: rgba(255, 255, 255, 0.25); transform: scale(1.1); }
+
+.slide-arrows { display: none; gap: 12px; justify-content: center; align-items: center; margin-top: 12px; }
+.slide-arrows .arrow { width: 44px; height: 44px; font-size: 1.1rem; }
+
+/* RESPONSIVO MÓVIL (Carousel) */
+@media (max-width: 440px) {
+    .carousel-section { padding: 20px 8px; width: 100%; max-width: 440px; }
+    .carousel-container { width: 95vw; height: 60vh; }
+    .carousel-content { padding: 18px; width: 100%; max-width: 440px; gap: 18px; }
+    .content-wrapper { width: 100%; text-align: center; padding: 0; }
+    
+    /* Ocultar imágenes */
+    .carousel-image, .slide-img { display: none; }
+    
+    .carousel-content h2 { font-size: 2rem; text-align: center; }
+    .carousel-content p { font-size: 1rem; }
+    
+    .carousel-nav-vertical { display: none; } /* Ocultar flechas verticales en móvil */
+    
+    .slide-arrows { display: flex; } /* Mostrar flechas horizontales en móvil */
+    .btn-vermas { padding: 12px 28px; font-size: 1rem; }
+}
+</style>

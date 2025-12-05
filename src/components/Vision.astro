@@ -1,0 +1,126 @@
+<section class="vision-section">
+  <div class="vision-card">
+    <div class="icon-decoration">✨</div>
+    
+    <h3>La intersección perfecta</h3>
+    
+    <p class="main-text">
+      En un mundo digital saturado, lo estético sin funcionalidad es solo decoración, 
+      y lo funcional sin alma es invisible. 
+    </p>
+    
+    <p class="highlight-text">
+      En <span class="brand-text">DesignMatch</span> borramos esa línea.
+    </p>
+
+    <p class="sub-text">
+      Creemos que la verdadera innovación surge del caos creativo ordenado por la lógica de la ingeniería. 
+      No solo entregamos proyectos; construimos experiencias digitales que respiran, conectan y perduran.
+    </p>
+  </div>
+</section>
+
+<style>
+  .vision-section {
+    /* Altura automática, con espacio arriba y abajo */
+    min-height: 60vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    box-sizing: border-box;
+  }
+
+  .vision-card {
+    max-width: 900px;
+    text-align: center;
+    
+    /* Efecto Glassmorphism (coherente con el resto) */
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 30px;
+    
+    padding: 60px;
+    color: white;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decoración brillante sutil */
+  .vision-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+    pointer-events: none;
+    transform: rotate(30deg);
+  }
+
+  .icon-decoration {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+    font-weight: 600;
+  }
+
+  .main-text {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+
+  .highlight-text {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  .brand-text {
+    background: linear-gradient(135deg, #fff 30%, #ffe4d6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+
+  .sub-text {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  /* RESPONSIVO */
+  @media (max-width: 768px) {
+    .vision-card {
+      padding: 40px 20px;
+    }
+    .main-text {
+      font-size: 1.5rem;
+    }
+    .highlight-text {
+      font-size: 1.8rem;
+    }
+  }
+</style>

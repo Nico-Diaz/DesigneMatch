@@ -1,0 +1,221 @@
+<section class="contact-section" id="contact-section">
+  <div class="contact-card">
+    <div class="contact-main">
+      
+      <!-- COLUMNA IZQUIERDA: INFORMACIÓN -->
+      <div class="contact-info">
+        <p class="contact-subtitle">CONTACTO</p>
+        <h2>Unimos talento y creatividad, ¿te sumás?</h2>
+        
+        <p class="contact-label">E-mail:</p>
+        <p class="contact-data">desingmatch@gmail.com</p>
+        
+        <p class="contact-label">WhatsApp</p>
+        <p class="contact-data">
+            +54 261 6123456<br>
+            +54 261 6654321
+        </p>
+
+        <p class="contact-label">Síguenos en Instagram:</p>
+        
+        <div class="instagram-links">
+          <!-- IMAGEN 1 DE INSTAGRAM -->
+          <!-- Cambia 'tu-link-aqui' por la URL de perfil -->
+          <!-- Cambia 'instagram-1.png' por el nombre de tu archivo en public/imagenes/ -->
+          <a href="https://www.instagram.com/ari.barrionuevodiblasi/" target="_blank" rel="noopener noreferrer">
+            <img src="public/instagram.png" alt="Instagram Perfil 1" class="instagram-icon">
+          </a>
+
+          <!-- IMAGEN 2 DE INSTAGRAM -->
+          <a href="https://www.instagram.com/diaz___nico/" target="_blank" rel="noopener noreferrer">
+            <img src="public/instagram.png" alt="Instagram Perfil 2" class="instagram-icon">
+          </a>
+        </div>
+
+      </div>
+      
+      <!-- COLUMNA DERECHA: FORMULARIO -->
+      <div class="contact-form-wrapper">
+        <h3>Déjanos tu mensaje:</h3>
+        <form>
+          <input type="text" placeholder="Nombre*" required>
+          <input type="email" placeholder="E-mail*" required>
+          <input type="text" placeholder="Asunto">
+          <textarea placeholder="Mensaje" rows="4"></textarea>
+          <button type="submit">Enviar mensaje</button>
+        </form>
+      </div>
+
+    </div>
+    
+    <!-- FOOTER DE LA TARJETA -->
+    <footer class="contact-footer">
+      <span class="dm-logo-footer">DM</span>
+      <span>www.designmatch.com.ar</span>
+      <span>desingmatch@gmail.com</span>
+      <span class="brand-footer">DesignMatch</span>
+    </footer>
+  </div>
+</section>
+
+<style>
+/* --- SECCIÓN 3 (CONTACTO) --- */
+.contact-section {
+    min-height: 100vh; /* Asegura que ocupe al menos la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.contact-card {
+    width: 85vw;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    padding: 50px;
+    box-sizing: border-box;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-main { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+/* Info Contacto */
+.contact-info .contact-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.contact-info h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #fff 30%, #ffe4d6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.contact-info .contact-label {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+.contact-info .contact-data { color: rgba(255, 255, 255, 0.85); line-height: 1.6; font-size: 1.1rem; }
+
+/* --- ESTILOS INSTAGRAM --- */
+.instagram-links { 
+    display: flex; 
+    gap: 20px; 
+    margin-top: 15px; 
+}
+
+.instagram-icon { 
+    width: 45px; /* Tamaño del icono */
+    height: 45px; 
+    transition: transform 0.3s ease; 
+    object-fit: contain; /* Para que la imagen no se deforme */
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+}
+
+.instagram-icon:hover { 
+    transform: scale(1.15) rotate(5deg); /* Efecto al pasar el mouse */
+}
+
+/* Formulario */
+.contact-form-wrapper {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    color: white;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+.contact-form-wrapper h3 {
+    margin-top: 0; margin-bottom: 30px; font-size: 1.8rem; font-weight: 600;
+    background: linear-gradient(135deg, #fff 30%, #ffe4d6);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.contact-form-wrapper form { display: flex; flex-direction: column; gap: 20px; }
+
+.contact-form-wrapper input, .contact-form-wrapper textarea {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 15px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+.contact-form-wrapper textarea { resize: none; min-height: 120px; }
+.contact-form-wrapper input:focus, .contact-form-wrapper textarea:focus {
+    outline: none; border-color: rgba(255, 255, 255, 0.5); background: rgba(255, 255, 255, 0.15);
+}
+.contact-form-wrapper input::placeholder, .contact-form-wrapper textarea::placeholder { color: rgba(255, 255, 255, 0.7); }
+
+.contact-form-wrapper button {
+    background: linear-gradient(135deg, #ff3131, #ff914d);
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 15px 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    align-self: flex-start;
+    margin-top: 10px;
+}
+.contact-form-wrapper button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+
+/* Footer del Contacto */
+.contact-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); margin-top: 40px; padding-top: 20px;
+    font-size: 1rem; color: rgba(255, 255, 255, 0.9);
+}
+.dm-logo-footer {
+    font-weight: 800; font-size: 2rem;
+    background: linear-gradient(135deg, #ff3131, #ff914d);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    padding: 5px 12px;
+}
+.brand-footer { font-weight: 600; opacity: 0.9; }
+
+/* MEDIA QUERIES */
+@media (max-width: 900px) {
+    .contact-card { padding: 30px; width: 100%; overflow: hidden; }
+    .contact-main { grid-template-columns: 1fr; gap: 20px; }
+    .contact-form-wrapper { padding: 20px; width: 100%; align-self: stretch; }
+    .contact-form-wrapper input, .contact-form-wrapper textarea, .contact-form-wrapper button { width: 100%; }
+    .instagram-links { flex-wrap: wrap; }
+    .contact-info .contact-data { word-wrap: break-word; overflow-wrap: break-word; }
+}
+
+@media (max-width: 440px) {
+    .contact-section { height: auto; padding: 40px 16px; }
+    .contact-card { width: 100%; padding: 25px; }
+    .contact-main { grid-template-columns: 1fr; gap: 30px; }
+    .contact-footer { flex-direction: column; align-items: center; gap: 15px; }
+    .contact-info h2 { font-size: 1.5rem; }
+    .contact-form-wrapper { padding: 16px; }
+    .instagram-links { justify-content: flex-start; }
+}
